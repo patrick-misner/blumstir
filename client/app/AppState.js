@@ -1,4 +1,5 @@
 import { dev } from './env.js'
+import { Comment } from "./Models/Comment.js"
 import { EventEmitter } from './Utils/EventEmitter.js'
 import { isValidProp } from './Utils/isValidProp.js'
 
@@ -11,6 +12,16 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Post').Post[]} */
   posts = []
   activePost = null
+  /** @type {import('./Models/Comment').Comment[]} */
+  comments = [new Comment({
+    id: "something",
+    title: "Oh Boy",
+    body: "I can't stand this anymore",
+    accountId: "accountId;",
+    postId: "postId",
+    votes: "votes"
+  })]
+  activeComment = {}
 }
 
 export const ProxyState = new Proxy(new AppState(), {

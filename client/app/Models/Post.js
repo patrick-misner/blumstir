@@ -1,19 +1,20 @@
-import {ProxyState} from "../AppState.js"
+import { ProxyState } from "../AppState.js"
+import { generateId } from "../Utils/GenerateId.js";
 
 
 
-export class Post{
-    constructor(postData){
-        this.id = postData.id;
-        this.title = postData.title;
-        this.body = postData.body;
-        this.imgUrl = postData.imgUrl;
-        this.accountId = postData.accountId;
-    }
+export class Post {
+  constructor(postData) {
+    this.id = postData.id || generateId();
+    this.title = postData.title;
+    this.body = postData.body;
+    this.imgUrl = postData.imgUrl;
+    this.accountId = postData.accountId || generateId();
+  }
 
 
-    get Template(){
-        return /*html*/ `
+  get Template() {
+    return /*html*/ `
         <div class="col-2"></div>
         <div class="card col-8 justify-content-center"  style="">
           <img src="" class="card-img-top" alt="">
@@ -41,23 +42,42 @@ export class Post{
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Post Title: ${this.title}</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
+    <form class="p-3" onsubmit="app.commentsController.createComment(${this.id})">
+      <div class="modal-body">
+        <div class=" d-flex  card rounded-0">
+            <input class="form-control" type="text" name="title" placeholder="Title..." aria-label="default input example">
+            <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body" placeholder="Comment..."
+              name="body"></textarea>
+            <div class="row vstack gap-2 ">
+            </div>
+            </div>
+        </div>
+        <div class="offcanvas-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-dark text-white  my-2">Are you sure you want to post this? </button>
+        </div>
+    </form>
     <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+      Comments:
     </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-  
+    <div id="offcanvas-comments">
+      ${this.Comments}
     </div>
   </div>
 </div>
         </div>
     `
-}
+  }
+
+  get Comments() {
+    let comments = ProxyState.comments.filter(c => c.postId == this.id)
+    let template = ''
+    comments.forEach(c => template += c.Template)
+    return template
+  }
 
 }

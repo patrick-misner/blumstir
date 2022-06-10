@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js";
 // @ts-ignore
 import { postsService } from "../Services/PostsService.js";
+import { commentsService } from "../Services/CommentsService.js"
 import { logger } from "../Utils/Logger.js";
 
 function _drawPosts() {
@@ -9,6 +10,13 @@ function _drawPosts() {
   posts.forEach((post) => (template += post.Template));
   // @ts-ignore
   document.getElementById("post-card").innerHTML = template;
+}
+function _drawComments() {
+  let comments = ProxyState.comments;
+  let template = "";
+  comments.forEach((comment) => (template += comment.Template));
+  // @ts-ignore
+  document.getElementById("offcanvas-comments").innerHTML = template;
 }
 
 function _drawActivePost() {
@@ -32,17 +40,17 @@ export class PostsController {
 
 
 
-  async createPost(id){
+  async createPost(id) {
     logger.log('createPost');
     window.event.preventDefault()
     let form = window.event.target;
     let postData = {
-        title: form.title.value,
-        body: form.body.value,
-        imgUrl: form.imgUrl.value,
-        accountId: ProxyState.user.id
+      title: form.title.value,
+      body: form.body.value,
+      imgUrl: form.imgUrl.value,
     }
     console.log('postData', postData);
     postsService.createPost(postData);
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("modal")).hide()
   }
 }

@@ -33,7 +33,7 @@ function _drawActivePost() {
 export class PostsController {
   constructor() {
     ProxyState.on("posts", _drawPosts);
-    ProxyState.on("activePost", _drawActivePost);
+    // ProxyState.on("activePost", _drawActivePost);
     ProxyState.on("comments", _drawPosts)
     _drawPosts()
   }
@@ -49,6 +49,5 @@ export class PostsController {
     }
     console.log('postData', postData);
     postsService.createPost(postData);
-    bootstrap.Modal.getOrCreateInstance(document.getElementById("modal")).hide()
   }
 }

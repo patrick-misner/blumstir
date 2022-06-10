@@ -8,8 +8,10 @@ import { api } from "./AxiosService.js";
 class PostsService {
   async createPost(postData) {
     logger.log('service createPost', postData);
-    const res = await api.post("api/posts/", { postData })
-    ProxyState.posts = [...ProxyState.posts, new Post(postData)]
+    const res = await api.post("api/posts", postData)
+    const post = new Post(res.data)
+    ProxyState.posts = [...ProxyState.posts, post]
+    ProxyState.activePost = post
   }
 
   deletePost(postId) {

@@ -7,7 +7,8 @@ import { logger } from "../Utils/Logger.js"
 class CommentsService {
 
   createComment(commentData) {
-    logger.log(commentData)
+    window.event.preventDefault()
+    logger.log('Cservice', commentData)
     ProxyState.comments = [...ProxyState.comments, new Comment(commentData)]
   }
 

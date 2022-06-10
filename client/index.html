@@ -11,8 +11,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style/main.css">
-    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
-    
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
   <title>blumstir</title>
 </head>
 
@@ -37,50 +37,54 @@
     </nav>
   </header>
   <main id="app">
-  
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Welcome to blumstir</h1>
-            
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Launch demo modal
-            </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <form class="p-3" onsubmit="app.postsController.createPost()">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Welcome to blumstir</h1>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Create Post
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New Jeff Post!!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="p-3" onsubmit="app.postsController.createPost()">
                   <div class="modal-body">
                     <div class=" d-flex  card rounded-0">
-                        <input class="form-control" type="text" name="title" placeholder="Default input" aria-label="default input example">
-                    
-                        <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body" placeholder="body"
-                          name="body" placeholder="Jeff post"></textarea>
-                          <input class="form-control" type="text" placeholder="imgUrl" name="imgUrl" aria-label="default input example">
-                    
-                        <div class="row vstack gap-2 ">
-                        </div>
-                        
+                      <input class="form-control" type="text" name="title" placeholder="Default input"
+                        aria-label="default input example">
+
+                      <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body"
+                        placeholder="body" name="body" placeholder="Jeff post"></textarea>
+                      <input class="form-control" type="text" placeholder="imgUrl" name="imgUrl"
+                        aria-label="default input example">
+
+                      <div class="row vstack gap-2 ">
                       </div>
+
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-dark text-white  my-2">Are you sure you want to post this? </button>
-                    </div>
-                  </form>
                   </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-dark text-white  my-2">Are you sure you want to post this?
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
-            
           </div>
-  
-    <div class="row" id="post-card">
-    <!-- <div class="col-2"></div>
+
+        </div>
+
+        <div class="row" id="post-card">
+          <!-- <div class="col-2"></div>
 <div class="card col-8 justify-content-center" id="post-card" style="">
   <img src="" class="card-img-top" alt="">
   <div class="card-body">
@@ -98,38 +102,38 @@
 </div>
 <div class="col-2"></div>
 <!--  -->
-</div>
+        </div>
 
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
+        <!-- Button trigger modal -->
 
 
+        <!-- Modal -->
 
 
 
 
 
-    <div class="container-fluid">
-      <div class="row my-3">
-        <div class="col-lg-5" id="auth-settings">
-          <div class="card p-2 skeleton-loader">
-            <div class="card-title p-2">
-              <div class="d-flex align-items-center">
-                <div class="skeleton-loader avatar"></div>
-                <div class="skeleton-loader text mx-2"></div>
+
+
+        <div class="container-fluid">
+          <div class="row my-3">
+            <div class="col-lg-5" id="auth-settings">
+              <div class="card p-2 skeleton-loader">
+                <div class="card-title p-2">
+                  <div class="d-flex align-items-center">
+                    <div class="skeleton-loader avatar"></div>
+                    <div class="skeleton-loader text mx-2"></div>
+                  </div>
+                </div>
+                <div class="card-body border-top">
+                  <div class="skeleton-loader text block"></div>
+                  <div class="skeleton-loader text block"></div>
+                  <div class="skeleton-loader text block"></div>
+                </div>
               </div>
-            </div>
-            <div class="card-body border-top">
-              <div class="skeleton-loader text block"></div>
-              <div class="skeleton-loader text block"></div>
-              <div class="skeleton-loader text block"></div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
   </main>
   <footer class="container-fluid bg-dark text-light">
     <div class="row text-center">

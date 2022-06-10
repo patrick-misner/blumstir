@@ -29,6 +29,8 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.0.0",
+    "install": "^0.13.0",
+    "jeffsum": "^1.1.1",
     "sass": "1.50.1"
   }
 }

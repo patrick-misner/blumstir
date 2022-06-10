@@ -34,13 +34,11 @@ export class PostsController {
   constructor() {
     ProxyState.on("posts", _drawPosts);
     ProxyState.on("activePost", _drawActivePost);
+    ProxyState.on("comments", _drawPosts)
     _drawPosts()
   }
 
-
-
-
-  async createPost(id) {
+  async createPost() {
     logger.log('createPost');
     window.event.preventDefault()
     let form = window.event.target;

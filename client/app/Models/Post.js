@@ -15,7 +15,7 @@ export class Post{
     get Template(){
         return /*html*/ `
         <div class="col-2"></div>
-        <div class="card col-8 justify-content-center" id="post-card" style="">
+        <div class="card col-8 justify-content-center"  style="">
           <img src="" class="card-img-top" alt="">
           <div class="card-body">
             <h5 class="card-title"><figure>

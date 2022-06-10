@@ -9,7 +9,7 @@ import BaseController from "../utils/BaseController";
 
 export class CommentVotesController extends BaseController{
   constructor(){
-    super('api/commentVotes')
+    super('api/commentvotes')
     this.router
       .get('', this.getAll)
       .get('/:id', this.getCommentVote)

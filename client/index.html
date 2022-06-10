@@ -37,16 +37,48 @@
     </nav>
   </header>
   <main id="app">
-    <div>
+  
 
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <h1>Welcome to blumstir</h1>
-            <p>
-              blumstir is a web application that allows you to create and share your own custom recipes.
-</p> <img class="img-fluid" src="https://images.wsj.net/im-434420?width=860&size=0.6663196251952108&pixel_ratio=1.5" alt="">
-    </div>
+            
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Launch demo modal
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form class="p-3" onsubmit="app.postsController.createPost()">
+                  <div class="modal-body">
+                    <div class=" d-flex  card rounded-0">
+                        <input class="form-control" type="text" name="title" placeholder="Default input" aria-label="default input example">
+                    
+                        <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body" placeholder="body"
+                          name="body" placeholder="Jeff post"></textarea>
+                          <input class="form-control" type="text" placeholder="imgUrl" name="imgUrl" aria-label="default input example">
+                    
+                        <div class="row vstack gap-2 ">
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-dark text-white  my-2">Are you sure you want to post this? </button>
+                    </div>
+                  </form>
+                  </div>
+              </div>
+            </div>
+            
+          </div>
+  
     <div class="row" id="post-card">
     <!-- <div class="col-2"></div>
 <div class="card col-8 justify-content-center" id="post-card" style="">
@@ -65,7 +97,16 @@
   </div>
 </div>
 <div class="col-2"></div>
-</div> -->
+<!--  -->
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+
 
 
 

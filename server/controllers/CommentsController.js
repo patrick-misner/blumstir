@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { commentsService } from "../services/CommentsService";
 import BaseController from "../utils/BaseController";
 
@@ -8,7 +9,10 @@ export class CommentsController extends BaseController{
     super('api/comments')
     this.router
       .get('', this.getAll)
+      .get('/:id', this.getComment)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
+      .put('/:id', this.update)
       .delete('/:id', this.remove)
   }
 
@@ -21,10 +25,31 @@ export class CommentsController extends BaseController{
     }
   }
 
+  async getComment(req, res, next){
+    try {
+      const foundComment = await commentsService.getComment(req.params.id)
+      return res.send(foundComment)
+    } catch (error) {
+      next(error)
+    }
+  }
+
   async create(req, res, next){
     try {
-      const comment = await commentsService.create(req.body)
-      return res.send(comment)
+      req.body.creatorId = req.userInfo.id
+      const newComment = await commentsService.create(req.body)
+      return res.send(newComment)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async update(req, res, next){
+    try {
+      req.body.creatorId = req.userInfo.id
+      req.body.id = req.params.id
+      const updatedComment = await commentsService.update(req.body)
+      return res.send(updatedComment)
     } catch (error) {
       next(error)
     }
@@ -32,8 +57,8 @@ export class CommentsController extends BaseController{
 
   async remove(req, res, next){
     try {
-      const message = await commentsService.remove(req.params.id)
-      return res.send(message)
+      await commentsService.remove(req.params.id, req.userInfo.id)
+      return res.send('deleted comment')
     } catch (error) {
       next(error)
     }

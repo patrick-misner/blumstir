@@ -8,7 +8,7 @@ import BaseController from "../utils/BaseController";
 
 export class PostVotesController extends BaseController{
   constructor(){
-    super('api/postVotes')
+    super('api/postvotes')
     this.router
       .get('', this.getAll)
       .get('/:id', this.getPostVote)

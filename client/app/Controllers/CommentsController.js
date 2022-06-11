@@ -12,7 +12,7 @@ function _drawComments(postId) {
 
 export class CommentsController {
   constructor() {
-    ProxyState.on("comments", _drawComments);
+    // ProxyState.on("comments", _drawComments);
     
     this.getComments()
    

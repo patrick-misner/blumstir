@@ -16,7 +16,7 @@ export class Post {
   get Template() {
     return /*html*/ `
         <div class="col-2"></div>
-        <div class="card col-8 justify-content-center mt-2"  style="">
+        <div class="card col-8 justify-content-center"  style="">
           <img src="" class="card-img-top" alt="">
           <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
@@ -35,6 +35,7 @@ export class Post {
         </button>
         <div><i class="selectable p-2 fs-2 mdi mdi-thumb-up" onclick="app.postsController.upVotePost()"></i><i class="selectable p-2 fs-2 on-hover mdi mdi-thumb-down"></i></div>
         </div>          
+            </figure></h4>           
           </div>
         </div>
         <div class="col-2"></div>
@@ -62,7 +63,7 @@ export class Post {
     <div>
       Comments:
     </div>
-    <div id="offcanvas-comments">
+    <div >
       ${this.Comments}
     </div>
   </div>

@@ -6,20 +6,21 @@ import { logger } from "../Utils/Logger.js"
 
 class CommentsService {
 
-  createComment(commentData) {
-    window.event.preventDefault()
-    logger.log('Cservice', commentData)
-    ProxyState.comments = [...ProxyState.comments, new Comment(commentData)]
-  }
+  // createComment(commentData) {
+  //   window.event.preventDefault()
+  //   logger.log('Cservice', commentData)
+  //   ProxyState.comments = [...ProxyState.comments, new Comment(commentData)]
+  // }
 
   removeComment(id) {
     ProxyState.comments = ProxyState.comments.filter(c => c.id != id)
   }
 
-  // async createComment(postId, body) {
-  //   const res = await api.post("api/comments/", { postId, body })
-  //   ProxyState.comments = [new Comment(res.data), ...ProxyState.comments]
-  // }
+  async createComment(commentData) {
+    const res = await api.post(`api/posts/${commentData.postId}/comments/`, { commentData })
+    logger.log(commentData, res)
+    ProxyState.comments = [new Comment(res.data), ...ProxyState.comments]
+  }
 
   // async remove(id) {
   //   await api.delete('api/comments/' + id)

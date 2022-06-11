@@ -12,9 +12,9 @@ function _drawComments(postId) {
 
 export class CommentsController {
   constructor() {
-    ProxyState.on("comments", _drawComments);
     
     this.getAllComments()
+    ProxyState.on("comments", _drawComments);
    
   }
   async createComment(postId) {
@@ -33,7 +33,7 @@ export class CommentsController {
   }
 
   async getAllComments() {
-    await commentsService.getAllComments();
+    await commentsService.getComments();
   } 
 
   async removeComment(id) {

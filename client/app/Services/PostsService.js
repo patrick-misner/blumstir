@@ -6,6 +6,7 @@ import { api } from "./AxiosService.js";
 
 
 class PostsService {
+  
 
   async getAllPosts() {
     const res = await api.get('api/posts')
@@ -35,6 +36,10 @@ class PostsService {
     ProxyState.posts = ProxyState.posts.filter(post => post.id !== postId)
 
 
+  }
+
+  async upVotePost(postId) {
+    const res = await api.put(`api/posts/${postId}`)
   }
 }
 export const postsService = new PostsService();

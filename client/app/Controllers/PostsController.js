@@ -49,6 +49,14 @@ export class PostsController {
       logger.error('[getPosts]', error.message)
     }
   }
+
+  async upVotePost(postId){
+    try {
+      await postsService.upVotePost(postId)
+    } catch (error) {
+      logger.error(error.message)
+    }
+  }
   async createPost() {
     logger.log('createPost');
     window.event.preventDefault()

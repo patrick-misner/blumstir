@@ -39,18 +39,10 @@ class CommentsService {
   //   ProxyState.comments = ProxyState.comments
   // }
 
-<<<<<<< HEAD
   async getComments(id) {
     const foundComments = await api.get('api/comments/')
     console.log(foundComments.data)
     ProxyState.comments = foundComments.data.map(c => new Comment(c))
-=======
-  async getAllComments(postData) {
-    const res = await api.get('api/posts/' , postData , '/comments')
-    logger.log(res.posts)
-    const comments = res.data.map(c => new Comment(c))
-    ProxyState.comments = comments
->>>>>>> 1004d071b395079e98cdc505ba0cc3c543b56087
   }
 }
 

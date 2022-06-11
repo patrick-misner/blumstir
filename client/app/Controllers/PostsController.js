@@ -9,8 +9,10 @@ function _drawPosts() {
   let template = "";
   posts.forEach((post) => (template += post.Template));
   // @ts-ignore
+
   document.getElementById("post-card").innerHTML = template;
 }
+
 function _drawComments() {
   let comments = ProxyState.comments;
   let template = "";
@@ -21,7 +23,7 @@ function _drawComments() {
 
 function _drawActivePost() {
   let activePost = ProxyState.activePost;
-  if (ProxyState.activePost !== null) {
+  if (activePost !== null) {
     // @ts-ignore
     document.getElementById("active-post-body").innerHTML =
       ProxyState.activePost.Template;

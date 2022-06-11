@@ -16,7 +16,7 @@ export class Post {
   get Template() {
     return /*html*/ `
         <div class="col-2"></div>
-        <div class="card col-8 justify-content-center mt-2"  style="">
+        <div class="card col-8 justify-content-center"  style="">
           <img src="" class="card-img-top" alt="">
           <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
@@ -28,16 +28,13 @@ export class Post {
               <figcaption class="blockquote-footer">
                 Jeff Goldblum in <cite title="Source Title">Jeff Goldblum</cite>
               </figcaption>
-            </figure></h4>
-            <div class="d-flex justify-content-center">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample${this.id}" aria-controls="offcanvasExample">
-          View comments
-        </button>
-        </div>          
+            </figure></h4>           
           </div>
         </div>
         <div class="col-2"></div>
-        
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample${this.id}" aria-controls="offcanvasExample">
+          View comments
+        </button>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample${this.id}" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">

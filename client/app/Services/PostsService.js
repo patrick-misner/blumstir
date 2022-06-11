@@ -7,7 +7,7 @@ import { api } from "./AxiosService.js";
 
 class PostsService {
 
-  async getAll() {
+  async getAllPosts() {
     const res = await api.get('api/posts')
     logger.log(res.posts)
     const posts = res.data.map(p => new Post(p))

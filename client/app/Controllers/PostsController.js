@@ -41,7 +41,7 @@ export class PostsController {
 
   async getPosts() {
     try {
-      await postsService.getAll()
+      await postsService.getAllPosts()
     } catch (error) {
       logger.error('[getPosts]', error.message)
     }

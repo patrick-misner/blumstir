@@ -2,20 +2,21 @@ import { ProxyState } from '../AppState.js'
 import { commentsService } from '../Services/CommentsService.js'
 import { logger } from '../Utils/Logger.js'
 
-// function _drawComments() {
-//   let comments = ProxyState.comments;
-//   let template = "";
-//   comments.forEach((comment) => (template += comment.Template));
-//   // @ts-ignore
-//   document.getElementById("offcanvas-comments").innerHTML = template;
-// }
+function _drawComments(postId) {
+  let comments = ProxyState.comments;
+  let template = "";
+  comments.forEach((comment) => (template += comment.Template));
+  // @ts-ignore
+  document.getElementById("offcanvas-comments"+postId).innerHTML = template;
+}
 
 export class CommentsController {
-  // constructor() {
-  //   ProxyState.on("comments", _drawComments);
-  //   ProxyState.on("activeComment", _drawActiveComment);
-  //   _drawComments()
-  // }
+  constructor() {
+    ProxyState.on("comments", _drawComments);
+    
+    this.getComments()
+   
+  }
   async createComment(postId) {
     logger.log('createComment', postId);
     window.event.preventDefault()
@@ -25,10 +26,15 @@ export class CommentsController {
       body: form.body.value,
       // accountId: ProxyState.user.id
     }
+    
     console.log('commentData', commentData);
     commentsService.createComment(commentData);
-    bootstrap.Offcanvas.getOrCreateInstance(document.getElementById('offcanvasExample' + postId)).hide()
+    bootstrap.Offcanvas.getOrCreateInstance(document.getElementById('offcanvasExample' + commentData)).hide()
   }
+
+  async getComments() {
+    await commentsService.getComments();
+  } 
 
   async removeComment(id) {
     commentsService.removeComment(id)

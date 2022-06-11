@@ -39,11 +39,11 @@ class CommentsService {
   //   ProxyState.comments = ProxyState.comments
   // }
 
-  // async getCommentsByPostId(postId) {
-  //   const foundComments = await api.get('api/posts/' + postId + '/comments')
-  //   console.log(foundComments.data)
-  //   ProxyState.comments = foundComments.data.map(c => new Comment(c))
-  // }
+  async getComments(id) {
+    const foundComments = await api.get('api/posts/' , id , '/comments')
+    console.log(foundComments.data)
+    ProxyState.comments = foundComments.data.map(c => new Comment(c))
+  }
 }
 
 export const commentsService = new CommentsService()

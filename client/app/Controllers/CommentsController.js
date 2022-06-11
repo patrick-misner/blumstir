@@ -7,14 +7,14 @@ function _drawComments(postId) {
   let template = "";
   comments.forEach((comment) => (template += comment.Template));
   // @ts-ignore
-  document.getElementById("offcanvas-comments"+postId).innerHTML = template;
+  document.getElementById("offcanvas-comments").innerHTML = template;
 }
 
 export class CommentsController {
   constructor() {
     // ProxyState.on("comments", _drawComments);
     
-    this.getComments()
+    this.getAllComments()
    
   }
   async createComment(postId) {
@@ -32,8 +32,8 @@ export class CommentsController {
     bootstrap.Offcanvas.getOrCreateInstance(document.getElementById('offcanvasExample' + commentData)).hide()
   }
 
-  async getComments() {
-    await commentsService.getComments();
+  async getAllComments() {
+    await commentsService.getAllComments();
   } 
 
   async removeComment(id) {

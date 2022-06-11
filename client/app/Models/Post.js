@@ -28,13 +28,18 @@ export class Post {
               <figcaption class="blockquote-footer">
                 Jeff Goldblum in <cite title="Source Title">Jeff Goldblum</cite>
               </figcaption>
+            </figure></h4>
+            <div class="d-flex justify-content-between">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample${this.id}" aria-controls="offcanvasExample">
+          View comments
+        </button>
+        <div><i class="selectable p-2 fs-2 mdi mdi-thumb-up" onclick="app.postsController.upVotePost()"></i><i class="selectable p-2 fs-2 on-hover mdi mdi-thumb-down"></i></div>
+        </div>          
             </figure></h4>           
           </div>
         </div>
         <div class="col-2"></div>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample${this.id}" aria-controls="offcanvasExample">
-          View comments
-        </button>
+        
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample${this.id}" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">

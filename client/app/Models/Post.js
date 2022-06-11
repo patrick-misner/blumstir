@@ -32,29 +32,29 @@ export class Post {
           </div>
         </div>
         <div class="col-2"></div>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample${this.id}" aria-controls="offcanvasExample">
           View comments
         </button>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample${this.id}" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Post Title: ${this.title}</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
+  <form class="p-3" onsubmit="app.commentsController.createComment('${this.id}')">
   <div class="offcanvas-body">
-    <form class="p-3" onsubmit="app.commentsController.createComment('${this.id}')">
       <div class="">
         <div class=" d-flex  card rounded-0">
             <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body" placeholder="Comment..."
               name="body"></textarea>
+              <button type="submit" class="btn btn-dark text-white  my-2">Are you sure you want to post this? </button>
             <div class="row vstack gap-2 ">
             </div>
+            </form>
             </div>
         </div>
         <div class="offcanvas-footer">
-          <button type="submit" class="btn btn-dark text-white  my-2">Are you sure you want to post this? </button>
         </div>
-    </form>
     <div>
       Comments:
     </div>

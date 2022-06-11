@@ -27,6 +27,7 @@ export class CommentsController {
     }
     console.log('commentData', commentData);
     commentsService.createComment(commentData);
+    bootstrap.Offcanvas.getOrCreateInstance(document.getElementById('offcanvasExample' + postId)).hide()
   }
 
   async removeComment(id) {

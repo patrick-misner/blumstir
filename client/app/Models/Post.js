@@ -8,7 +8,7 @@ export class Post {
     this.id = postData.id || generateId();
     this.title = postData.title;
     this.body = postData.body;
-    this.imgUrl = postData.imgUrl;
+    this.imageUrl = postData.imageUrl;
     this.accountId = postData.accountId || generateId();
   }
 
@@ -21,7 +21,7 @@ export class Post {
           <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
             <p>${this.body}</p>
-            <img src="${this.imgUrl}" class="img-fluid"alt="">
+            <img src="${this.imageUrl}" class="img-fluid"alt="">
             <h4><figure>
               <blockquote class="blockquote">
               </blockquote>

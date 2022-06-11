@@ -60,5 +60,7 @@ export class PostsController {
     }
     console.log('postData', postData);
     postsService.createPost(postData);
+    form.reset()
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('exampleModal')).hide()
   }
 }

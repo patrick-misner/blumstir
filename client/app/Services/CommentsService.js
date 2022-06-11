@@ -40,7 +40,7 @@ class CommentsService {
   // }
 
   async getAllComments(postData) {
-    const res = await api.get('api/posts/' + postData + '/comments')
+    const res = await api.get('api/posts/' , postData , '/comments')
     logger.log(res.posts)
     const comments = res.data.map(c => new Comment(c))
     ProxyState.comments = comments

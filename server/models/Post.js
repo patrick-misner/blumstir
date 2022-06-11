@@ -12,3 +12,11 @@ export const PostSchema = new Schema({
   votes: {type: Number, default: 1}
 }, {timestamps: true, toJSON: { virtuals: true } }
 )
+
+
+PostSchema.virtual('creator', {
+  localField: 'creatorId',
+  ref: 'Account',
+  foreignField: '_id',
+  justOne: true
+})

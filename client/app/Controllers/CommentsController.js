@@ -22,7 +22,6 @@ export class CommentsController {
     let form = window.event.target;
     let commentData = {
       postId: postId,
-      title: form.title.value,
       body: form.body.value,
       // accountId: ProxyState.user.id
     }

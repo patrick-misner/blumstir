@@ -8,7 +8,7 @@ export class Post {
     this.id = postData.id || generateId();
     this.title = postData.title;
     this.body = postData.body;
-    this.imgUrl = postData.imgUrl;
+    this.imageUrl = postData.imageUrl;
     this.accountId = postData.accountId || generateId();
   }
 
@@ -21,7 +21,7 @@ export class Post {
           <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
             <p>${this.body}</p>
-            <img src="${this.imgUrl}" class="img-fluid"alt="">
+            <img src="${this.imageUrl}" class="img-fluid"alt="">
             <h4><figure>
               <blockquote class="blockquote">
               </blockquote>
@@ -45,7 +45,6 @@ export class Post {
     <form class="p-3" onsubmit="app.commentsController.createComment('${this.id}')">
       <div class="">
         <div class=" d-flex  card rounded-0">
-            <input class="form-control" type="text" name="title" placeholder="Title..." aria-label="default input example">
             <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body" placeholder="Comment..."
               name="body"></textarea>
             <div class="row vstack gap-2 ">

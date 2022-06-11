@@ -8,6 +8,7 @@ function _drawPosts() {
   let posts = ProxyState.posts;
   let template = "";
   posts.forEach((post) => (template += post.Template));
+  // logger.log(template)
   // @ts-ignore
   document.getElementById("post-card").innerHTML = template;
 }
@@ -53,7 +54,7 @@ export class PostsController {
     let postData = {
       title: form.title.value,
       body: form.body.value,
-      imgUrl: form.imgUrl.value,
+      imageUrl: form.imageUrl.value,
     }
     console.log('postData', postData);
     postsService.createPost(postData);

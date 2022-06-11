@@ -13,7 +13,7 @@ export class Comment {
 
   get Template() {
     return `
-   <div class="card-body" id="${this.postId}">                 
+   <div class="card-body" id="${this.id}">                 
       <p class="card-text">${this.body} </p>
     </div>`
   }

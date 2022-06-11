@@ -45,7 +45,6 @@ export class Post {
     <form class="p-3" onsubmit="app.commentsController.createComment('${this.id}')">
       <div class="">
         <div class=" d-flex  card rounded-0">
-            <input class="form-control" type="text" name="title" placeholder="Title..." aria-label="default input example">
             <textarea type="text" minlength="2" class="form-control border border-2 border-dark" id="body" placeholder="Comment..."
               name="body"></textarea>
             <div class="row vstack gap-2 ">

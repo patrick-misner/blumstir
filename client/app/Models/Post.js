@@ -63,7 +63,7 @@ export class Post {
     <div>
       Comments:
     </div>
-    <div >
+    <div id="offcanvas-comments">
       ${this.Comments}
     </div>
   </div>

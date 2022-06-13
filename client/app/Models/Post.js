@@ -9,6 +9,7 @@ export class Post {
     this.title = postData.title;
     this.body = postData.body;
     this.imageUrl = postData.imageUrl;
+    this.votes = postData.votes
     this.accountId = postData.accountId || generateId();
   }
 
@@ -16,7 +17,7 @@ export class Post {
   get Template() {
     return /*html*/ `
         <div class="col-2"></div>
-        <div class="card col-8 justify-content-center"  style="">
+        <div class="card col-8 justify-content-center mt-2"  style="">
           <img src="" class="card-img-top" alt="">
           <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
@@ -33,7 +34,7 @@ export class Post {
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample${this.id}" aria-controls="offcanvasExample">
           View comments
         </button>
-        <div><i class="selectable p-2 fs-2 mdi mdi-thumb-up" onclick="app.postsController.upVotePost()"></i><i class="selectable p-2 fs-2 on-hover mdi mdi-thumb-down"></i></div>
+        <div><i class="selectable p-2 fs-2 mdi mdi-thumb-up" onclick="app.postsController.upVotePost('${this.id}')"></i><i class="selectable p-2 fs-2 on-hover mdi mdi-thumb-down"></i></div>
         </div>          
             </figure></h4>           
           </div>

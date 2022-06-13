@@ -39,7 +39,11 @@ class PostsService {
   }
 
   async upVotePost(postId) {
-    const res = await api.put(`api/posts/${postId}`)
+    let vote = ProxyState.posts.find(p => p.id == postId)
+    vote.votes++
+    const res = await api.put('api/posts/' + postId, vote)
+    ProxyState.posts = ProxyState.posts
+    console.log('vote up post', res.data);
   }
 }
 export const postsService = new PostsService();
